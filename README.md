@@ -1,6 +1,8 @@
 
 # 🧠 AI Room Editor — Pilotprojekt
 
+🚀 Deployment länk: https://stable-diffusor-joelp.netlify.app/
+
 Detta är ett experimentellt projekt som använder generativ AI för att placera användaruppladdade objekt (som mattor) in i AI-genererade bilder av rum. Projektet bygger på en kombination av:
 
 - 🧱 **Stable Diffusion v1.5** – för att generera grundläggande rumsmiljöer.
