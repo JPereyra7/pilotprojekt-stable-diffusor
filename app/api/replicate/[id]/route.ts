@@ -1,5 +1,7 @@
+import { NextRequest } from "next/server";
+
 export async function GET(
-  _req: Request,
+  _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   const res = await fetch(`https://api.replicate.com/v1/predictions/${params.id}`, {
