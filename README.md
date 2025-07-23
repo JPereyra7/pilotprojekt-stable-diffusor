@@ -7,7 +7,7 @@ Detta är ett experimentellt projekt som använder generativ AI för att placera
 
 - 🧱 **Stable Diffusion v1.5** – för att generera grundläggande rumsmiljöer.
 - 🧠 **ControlNet (Kandinsky 2.2 Depth)** – för att försöka placera in en uppladdad bild i scenen baserat på djupinformation.
-- ☁️ **Supabase** – för autentisering och filuppladdningar.
+- ☁️ **Supabase** – för filuppladdningar.
 - 💻 **Next.js (App Router)** – för frontend + API-routes som kommunicerar med Replicate.
 - 🖼️ **Replicate API** – för att köra modeller via REST.
 
