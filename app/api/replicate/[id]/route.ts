@@ -1,4 +1,3 @@
-// app/api/replicate/[id]/route.ts
 export async function GET(
   req: Request,
   { params }: { params: { id: string } }
@@ -18,3 +17,4 @@ export async function GET(
     headers: { "Content-Type": "application/json" },
   });
 }
+export default GET;
