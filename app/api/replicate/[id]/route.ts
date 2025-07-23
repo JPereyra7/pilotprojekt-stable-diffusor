@@ -1,5 +1,5 @@
 export async function GET(
-  req: Request,
+  _req: Request,
   { params }: { params: { id: string } }
 ) {
   const res = await fetch(`https://api.replicate.com/v1/predictions/${params.id}`, {
