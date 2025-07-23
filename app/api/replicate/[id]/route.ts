@@ -1,9 +1,9 @@
 // app/api/replicate/[id]/route.ts
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  _request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params;
+  const { id } = await params;
 
   const res = await fetch(
     `https://api.replicate.com/v1/predictions/${id}`,
