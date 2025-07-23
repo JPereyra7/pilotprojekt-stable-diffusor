@@ -1,19 +1,23 @@
+// app/api/replicate/[id]/route.ts
 export async function GET(
-  _req: Request,                           
-  { params }: { params: { id: string } }  
+  request: Request,                           // ← **must be** a `Request`
+  context: { params: { id: string } }         // ← second arg = “context”
 ) {
-  const { id } = params;
+  const { id } = context.params;
 
-  const res = await fetch(`https://api.replicate.com/v1/predictions/${id}`, {
-    headers: {
-      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://api.replicate.com/v1/predictions/${id}`,
+    {
+      headers: {
+        Authorization: `Token ${process.env.REPLICATE_API_TOKEN!}`,
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+    }
+  );
 
-  const data = await res.json();
-  return new Response(JSON.stringify(data), {
+  // pass the replicate JSON straight through
+  return new Response(await res.text(), {
     status: res.status,
     headers: { "Content-Type": "application/json" },
   });
