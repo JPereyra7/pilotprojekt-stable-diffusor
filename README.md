@@ -1,37 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🧠 AI Room Editor — Pilotprojekt
 
-First, run the development server:
+Detta är ett experimentellt projekt som använder generativ AI för att placera användaruppladdade objekt (som mattor) in i AI-genererade bilder av rum. Projektet bygger på en kombination av:
+
+- 🧱 **Stable Diffusion v1.5** – för att generera grundläggande rumsmiljöer.
+- 🧠 **ControlNet (Kandinsky 2.2 Depth)** – för att försöka placera in en uppladdad bild i scenen baserat på djupinformation.
+- ☁️ **Supabase** – för autentisering och filuppladdningar.
+- 💻 **Next.js (App Router)** – för frontend + API-routes som kommunicerar med Replicate.
+- 🖼️ **Replicate API** – för att köra modeller via REST.
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/JPereyra7/pilotprojekt-stable-diffusor.git
+cd pilotprojekt-stable-diffusor
+npm install
+```
+
+### 🔐 Miljövariabler
+
+Skapa en `.env.local` och lägg till följande:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+NEXT_PUBLIC_MODELSLAB_KEY=your_modelslab_key
+REPLICATE_API_TOKEN=your_replicate_token
+```
+
+---
+
+## 🚀 Starta projektet lokalt
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚠️ Begränsningar
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Modellerna har begränsad förmåga att exakt placera ett specifikt objekt i en befintlig bild.
+- Replicate kräver **betald kreditering** för att köra vissa modeller.
+- Resultaten kan ibland vara oförutsägbara då vissa modeller "hallucinerar" innehåll istället för att följa instruktioner strikt.
+- Detta är ett pilotprojekt och inte optimerat för produktion.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔮 Nästa steg
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Utvärdera lokala lösningar med ComfyUI eller Automatic1111 för bättre precision vid inpainting.
+- Implementera image masking via ControlNet.
+- Möjliggöra användarinteraktion för att rita egna maskområden.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📄 Licens
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# pilotprojekt-stable-diffusor
+MIT
